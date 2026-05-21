@@ -11,6 +11,7 @@
 
 *   **📱 類 Gboard 雙層體驗**：一鍵呼叫面板，前排自動顯示你最近最常敲的 15 個 Emoji（動態排序），後排則是你的核心常用固定盤。
 *   **💾 純文字按行自訂 (Line-based)**：`emoji_fixed.txt`（固定盤）與 `emoji_history.txt`（常用紀錄）全面採用**「一行一個 Emoji」**的極簡格式，想加什麼直接開記事本貼上換行即可。
+*   **😀 适配原先快捷输入**：匹配原有 emoji 的輸入習慣，将其加入最近使用清單。
 *   **🔒 隔離防禦，擊敗內建去重**：RIME 內建的去重機制常會把固定盤裡重複的 Emoji 吃掉。本插件透過專屬的 Filter 管道，**保證後排固定盤的 Emoji 絕對雷打不動、完整重複出現**。
 *   **🧼 0 隱形字元，上屏 100% 純淨**：徹底拋棄會導致部分軟體排版崩壞、斷字失敗的隱形字元（如 `\u{feff}`）黑魔法，送上螢幕的 Emoji 100% 乾淨無瑕。
 
@@ -71,6 +72,16 @@ engine:
     # ... 原有的 filters (如 simplifier, uniquifier 等)
     - lua_filter@*emoji_uniquifier_filter     # 👈 務必放在 filters 家族的最下層！
 
+```
+
+或者是在方案列表中 ( `xxxxx.custom.yaml` ) 加入以下
+```yaml
+"engine/translators/+":
+  - lua_translator@*emoji_selector_translator
+"engine/processors/+":
+  - lua_processor@*emoji_history_processor
+"engine/filters/+":
+  - lua_filter@*emoji_uniquifier_filter     # 👈 務必放在 filters 列表的最底端！
 ```
 
 ---
