@@ -45,10 +45,9 @@
 🚀
 👍
 👀
-
 ```
 
-專案 `emoji_fixed.txt` 內建125個 emoji，複製自 Gboard 符號。
+專案 `emoji_fixed.txt` 內建125個 emoji，比照 Gboard 輸入法排序。
 
 ### Step 2. 掛載到輸入方案 (`.schema.yaml`)
 
