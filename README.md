@@ -81,7 +81,7 @@ engine:
 "engine/processors/+":
   - lua_processor@*emoji_history_processor
 "engine/filters/+":
-  - lua_filter@*emoji_uniquifier_filter     # 👈 務必放在 filters 列表的最底端！
+  - lua_filter@*emoji_uniquifier_filter
 ```
 
 ---
